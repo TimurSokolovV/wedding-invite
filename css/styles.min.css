@@ -670,7 +670,12 @@ span {
 #section-invite .section__invite-newlyweds .item img {
   border-radius: 50%;
   width: 200px;
-  height: 211px;
+  height: 200px;
+
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
 }
 #section-invite .section__invite-newlyweds .item h3 {
   font-family: "Caveat";

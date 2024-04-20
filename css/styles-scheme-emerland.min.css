@@ -666,15 +666,16 @@ span {
   background-repeat: no-repeat;
   background-size: 42px auto;
   margin-bottom: 64px;
-  @media (max-width: 767px) {
-    flex-direction: column;
-    gap: 60px;
-  }
 }
 #section-invite .section__invite-newlyweds .item img {
   border-radius: 50%;
   width: 200px;
-  height: 211px;
+  height: 200px;
+
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
 }
 #section-invite .section__invite-newlyweds .item h3 {
   font-family: "Caveat";
@@ -1232,7 +1233,7 @@ span {
   border-radius: 50%;
   width: 100px;
   height: 100px;
-  
+
   @media (max-width: 555px) {
     width: 55px;
     height: 55px;
