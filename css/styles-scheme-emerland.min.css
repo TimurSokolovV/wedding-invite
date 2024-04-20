@@ -338,7 +338,7 @@ span {
   max-height: -webkit-fill-available;
   padding-bottom: 124px;
 
-  @media (max-width:768px) {
+  @media (max-width: 768px) {
     background-position: right;
   }
 }
@@ -483,7 +483,7 @@ span {
   z-index: 20;
   color: #fff;
 
-  @media (max-width:768px) {
+  @media (max-width: 768px) {
     top: 190px;
     right: 50px;
   }
@@ -532,7 +532,7 @@ span {
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  background-color: #fff;
+  background-color: #f4f4f2;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
 }
@@ -570,7 +570,7 @@ span {
   top: -22px;
   width: 648px;
   height: 24px;
-  background-color: #fff;
+  background-color: #f4f4f2;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   z-index: -1;
@@ -666,10 +666,15 @@ span {
   background-repeat: no-repeat;
   background-size: 42px auto;
   margin-bottom: 64px;
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 60px;
+  }
 }
 #section-invite .section__invite-newlyweds .item img {
   border-radius: 50%;
   width: 200px;
+  height: 211px;
 }
 #section-invite .section__invite-newlyweds .item h3 {
   font-family: "Caveat";
@@ -785,7 +790,7 @@ span {
 .gallery ul li img {
   width: 100%;
   height: 400px;
-  @media (max-width:768px) {
+  @media (max-width: 768px) {
     height: 150px;
   }
 }
@@ -1211,10 +1216,25 @@ span {
   #section-invite .section__invite-newlyweds {
     margin-bottom: 32px;
   }
-  #section-invite .section__invite-newlyweds .item img {
-    width: 33vw;
-  }
   #section-pool::after {
     width: 75%;
+  }
+}
+
+.dresscode-colors {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  gap: 8px;
+}
+.dresscode-colors__item {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  
+  @media (max-width: 555px) {
+    width: 55px;
+    height: 55px;
   }
 }
