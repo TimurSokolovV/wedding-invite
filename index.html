@@ -71,8 +71,7 @@
     <link href="css/jquery.classycountdown.css" rel="stylesheet" />
     <link href="css/timeline.css" rel="stylesheet" />
     <link href="css/styles-addon.min.css" rel="stylesheet" />
-    <link href="css/styles.min.css" rel="stylesheet" />
-    <link href="css/styles-scheme-emerland.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
     <link href="css/index-dfwUva2B.css" rel="stylesheet" />
   </head>
   <body class="lang-ru">
@@ -105,11 +104,8 @@
         <div class="section__first-menu" id="menu">
           <ul>
             <li class="smooth-scroll">
-              <a href="#section-invite">О нас</a>
+              <a href="#section-invite">Приглашение</a>
             </li>
-            <!-- <li class="smooth-scroll">
-              <a href="#section-guest">Приглашение</a>
-            </li> -->
             <li class="smooth-scroll">
               <a href="#section-faq">F.A.Q.</a>
             </li>
@@ -190,8 +186,6 @@
             </p>
           </div>
 
-          <!-- Видео-обращение -->
-
           <!-- Жених и невеста -->
           <div class="section__invite-newlyweds">
             <div class="item">
@@ -201,6 +195,15 @@
             <div class="item">
               <img src="images/Sanek.jpg" alt="Александра картинка" />
             </div>
+          </div>
+
+          <div class="invite-buttons" id="invite-actions">
+            <button data-mode="accept" class="invite-action accept">
+              Я принимаю приглашение
+            </button>
+            <button data-mode="decline" class="invite-action decline">
+              Я не смогу быть
+            </button>
           </div>
 
           <!-- Жених и невеста -->
@@ -532,7 +535,7 @@
             <span> Церемония и cвадебный ужин </span>
           </h2>
 
-          <h3>Ресторан</h3>
+          <h3>Парк-отель Дворянское гнездо</h3>
 
           <p>Россия, Московская область, Королёв Болшевское шоссе, 35</p>
         </div>
@@ -686,7 +689,7 @@
     </div>
     <div class="modal fade" id="modal-guest-accept" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
-        <form action="/personal/accept/" method="POST" id="form-guest-accept">
+        <form action="/invite/accept/" method="POST" id="form-guest-accept">
           <input type="hidden" name="mode" value="accept" />
           <input type="hidden" name="is_preview" value="" />
           <input type="hidden" name="guest[uid]" value="55a92cd35163c" />
@@ -764,7 +767,7 @@
       role="dialog"
     >
       <div class="modal-dialog" role="document">
-        <form action="/personal/accept/" method="POST" id="form-guest-decline">
+        <form action="/invite/decline/" method="POST" id="form-guest-decline">
           <input type="hidden" name="mode" value="decline" />
           <input type="hidden" name="is_preview" value="" />
           <input type="hidden" name="guest[uid]" value="55a92cd35163c" />
@@ -816,7 +819,7 @@
     </div>
     <div class="modal fade" id="modal-guest-change" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
-        <form action="/personal/change/" method="POST" id="form-guest-change">
+        <form action="/invite/accept/" method="POST" id="form-guest-change">
           <input type="hidden" name="mode" value="change" />
           <input type="hidden" name="is_preview" value="" />
           <input type="hidden" name="guest[uid]" value="55a92cd35163c" />
@@ -911,19 +914,19 @@
 
     <!-- JS -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/ie10-viewport-bug-workaround.min.js"></script>
-    <script src="js/modernizr.custom.js"></script>
     <script src="js/toastr.min.js"></script>
     <script src="js/wow.min.js"></script>
-    <script src="js/jQueryEmoji.min.js"></script>
     <script src="js/jquery.knob.js"></script>
     <script src="js/jquery.throttle.js"></script>
     <script src="js/jquery.classycountdown.js"></script>
     <script src="js/jquery.blueimp-gallery.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;coordorder=longlat&amp;apikey=963f829f-a8c8-4005-891c-8a919627e2e2"></script>
-    <script src="js/scripts.min.js"></script>
-    <script src="js/scripts-program-yandex.min.js"></script>
-    <script src="js/index-aMk90LNg.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/scripts-program-yandex.js"></script>
+    <!-- <script src="js/ie10-viewport-bug-workaround.min.js"></script> -->
+    <!-- <script src="js/modernizr.custom.js"></script> -->
+    <!-- <script src="js/jQueryEmoji.min.js"></script> -->
+    <!-- <script src="js/index-aMk90LNg.js"></script> -->
 
     <!-- Scripts -->
     <script>
