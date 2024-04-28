@@ -259,6 +259,16 @@ span {
 .modal .form-group {
   margin-bottom: 16px;
 }
+.form-radio-block {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.redio-button {
+  margin-top: 0px !important;
+  width: 18px;
+  height: 18px;
+}
 .modal .form-group label {
   font-weight: 400;
   margin-bottom: 8px;

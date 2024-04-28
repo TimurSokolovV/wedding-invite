@@ -287,47 +287,47 @@
           <ul id="gallery-story">
             <li>
               <a href="/images/love_story1.jpg"
-                ><img loading="lazy" src="/images/love_story1.jpg" alt=""
+                ><img src="/images/love_story1.jpg" alt=""
               /></a>
             </li>
             <li>
               <a href="/images/love_story9.jpg"
-                ><img loading="lazy" src="/images/love_story9.jpg" alt=""
+                ><img src="/images/love_story9.jpg" alt=""
               /></a>
             </li>
             <li>
               <a href="/images/love_story3.jpg"
-                ><img loading="lazy" src="/images/love_story3.jpg" alt=""
+                ><img src="/images/love_story3.jpg" alt=""
               /></a>
             </li>
             <li>
               <a href="/images/love_story4.jpg"
-                ><img loading="lazy" src="/images/love_story4.jpg" alt=""
+                ><img src="/images/love_story4.jpg" alt=""
               /></a>
             </li>
             <li>
               <a href="/images/love_story6.jpg"
-                ><img loading="lazy" src="/images/love_story6.jpg" alt=""
+                ><img src="/images/love_story6.jpg" alt=""
               /></a>
             </li>
             <li>
               <a href="/images/love_story2.jpg"
-                ><img loading="lazy" src="/images/love_story2.jpg" alt=""
+                ><img src="/images/love_story2.jpg" alt=""
               /></a>
             </li>
             <li>
               <a href="/images/love_story7.jpg"
-                ><img loading="lazy" src="/images/love_story7.jpg" alt=""
+                ><img src="/images/love_story7.jpg" alt=""
               /></a>
             </li>
             <li>
               <a href="/images/love_story5.jpg"
-                ><img loading="lazy" src="/images/love_story5.jpg" alt=""
+                ><img src="/images/love_story5.jpg" alt=""
               /></a>
             </li>
             <li>
               <a href="/images/love_story8.jpg"
-                ><img loading="lazy" src="/images/love_story8.jpg" alt=""
+                ><img src="/images/love_story8.jpg" alt=""
               /></a>
             </li>
           </ul>
@@ -702,29 +702,51 @@
             <div class="modal-body">
               <div class="row">
                 <div class="form-group col-md-12">
+                  <label for="">Укажите свое имя</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="guest[name]"
+                    placeholder="Имя и фамилия"
+                    value=""
+                  />
+                </div>
+                <div class="form-group col-md-12">
                   <label for="">Подтвердите количество персон</label>
                   <select class="form-control" name="guest[count]">
-                    <option>1</option>
-                    <option selected="">2</option>
+                    <option selected="">1</option>
+                    <option>2</option>
                     <option>3</option>
                     <option>4</option>
                     <option>5</option>
                   </select>
                 </div>
                 <div class="form-group col-md-12">
-                  <label for=""> E-mail </label>
-
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="guest[email]"
-                    placeholder="Для сообщений от молодоженов"
-                    value=""
-                  />
+                  <label
+                    >Планируете ли вы остаться на ночь после свадебного
+                    банкета?</label
+                  >
+                  <div style="margin-bottom: 8px" class="form-radio-block">
+                    <input
+                      class="redio-button"
+                      type="radio"
+                      name="stay_overnight"
+                      value="yes"
+                    />
+                    <span>Да</span>
+                  </div>
+                  <div class="form-radio-block">
+                    <input
+                      class="redio-button"
+                      type="radio"
+                      name="stay_overnight"
+                      value="no"
+                    />
+                    <span>Нет</span>
+                  </div>
                 </div>
                 <div class="form-group col-md-12">
-                  <label for=""> Сообщение молодоженам </label>
-
+                  <label for="">Сообщение молодоженам</label>
                   <textarea
                     class="form-control"
                     name="guest[comment]"
@@ -817,7 +839,7 @@
         </form>
       </div>
     </div>
-    <div class="modal fade" id="modal-guest-change" tabindex="-1" role="dialog">
+    <!-- <div class="modal fade" id="modal-guest-change" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <form action="/invite/accept/" method="POST" id="form-guest-change">
           <input type="hidden" name="mode" value="change" />
@@ -879,7 +901,7 @@
           </div>
         </form>
       </div>
-    </div>
+    </div> -->
 
     <!-- JS -->
     <!-- Partials -->
@@ -923,7 +945,7 @@
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;coordorder=longlat&amp;apikey=963f829f-a8c8-4005-891c-8a919627e2e2"></script>
     <script src="js/scripts.js"></script>
     <script src="js/scripts-program-yandex.js"></script>
-    <!-- <script src="js/ie10-viewport-bug-workaround.min.js"></script> -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
     <!-- <script src="js/modernizr.custom.js"></script> -->
     <!-- <script src="js/jQueryEmoji.min.js"></script> -->
     <!-- <script src="js/index-aMk90LNg.js"></script> -->
