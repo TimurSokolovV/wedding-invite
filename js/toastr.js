@@ -236,12 +236,10 @@
         function b() {
           clearTimeout(H),
             (q.hideEta = 0),
-            y
-              .stop(!0, !0)
-              [x.showMethod]({
-                duration: x.showDuration,
-                easing: x.showEasing,
-              });
+            y.stop(!0, !0)[x.showMethod]({
+              duration: x.showDuration,
+              easing: x.showEasing,
+            });
         }
         function D() {
           var e = ((q.hideEta - new Date().getTime()) / q.maxHideTime) * 100;

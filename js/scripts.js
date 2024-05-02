@@ -3,43 +3,8 @@ var $modalButton,
   $form,
   $j = jQuery.noConflict(!0);
 
-function performPostRequest(url, data, callback) {
-  performRequest("POST", url, data, callback);
-}
-
-function performGetRequest(url, data, callback) {
-  performRequest("GET", url, data, callback);
-}
-
-function performRequest(method, url, data, callback) {
-  $j.ajax({
-    type: method,
-    dataType: "JSON",
-    url: url,
-    data: data,
-    beforeSend: function () {
-      $modalButton.attr("disabled", !0);
-    },
-    error: function () {
-      showError();
-    },
-    success: function (response) {
-      if (response && response.status) {
-        toastr.info(response.reason);
-        if (callback) callback(response);
-      } else if (response && !response.status) {
-        if (response.errors.length > 0) {
-          showError(response.errors[0].message);
-        } else {
-          showError(response.reason);
-        }
-      }
-    },
-    complete: function () {
-      $modalButton.attr("disabled", !1);
-    },
-  });
-}
+//AKfycbynrpeK_I5qeJcHm9qu-w4nLlpRldTBEr9c2EMTru9nhAHCQ_r2eiohf7P8v3Yiwb6d
+//https://script.google.com/macros/s/AKfycbynrpeK_I5qeJcHm9qu-w4nLlpRldTBEr9c2EMTru9nhAHCQ_r2eiohf7P8v3Yiwb6d/exec
 
 function showError(message) {
   message
@@ -48,7 +13,67 @@ function showError(message) {
 }
 
 $j(document).ready(function () {
-  new WOW().init();
+  // Функция для проверки заполненности поля имени
+  function validateNameField() {
+    var nameInput = document.querySelector('input[name="guest[name]"]');
+    var name = nameInput.value.trim();
+    if (name === "") {
+      showError('Поле "Укажите свое имя" не может быть пустым');
+      return false;
+    }
+    return true;
+  }
+
+  // Функция для проверки выбора варианта остаться на ночь
+  function validateStayOvernightField() {
+    var stayOvernightInputs = document.querySelectorAll(
+      'input[name="stay_overnight"]'
+    );
+    var isChecked = false;
+    stayOvernightInputs.forEach(function (input) {
+      if (input.checked) {
+        isChecked = true;
+      }
+    });
+    if (!isChecked) {
+      showError(
+        'Пожалуйста, выберите один из вариантов для поля "Планируете ли вы остаться на ночь после свадебного банкета?"'
+      );
+      return false;
+    }
+    return true;
+  }
+
+  // Функция для отправки формы
+  function submitForm() {
+    var isValidName = validateNameField();
+    var isValidStayOvernight = validateStayOvernightField();
+    if (isValidName && isValidStayOvernight) {
+      var form = document.getElementById("form-guest-accept");
+      var formData = new FormData(form);
+      fetch(
+        "https://script.google.com/macros/s/AKfycbynrpeK_I5qeJcHm9qu-w4nLlpRldTBEr9c2EMTru9nhAHCQ_r2eiohf7P8v3Yiwb6d/exec",
+        {
+          method: "POST",
+          body: formData,
+        }
+      )
+        .then(function (response) {
+          if (response.ok) {
+            toastr.success("Форма успешно отправлена!");
+            form.reset();
+          } else {
+            showError(
+              "Ошибка при отправке формы. Пожалуйста, попробуйте еще раз."
+            );
+          }
+        })
+        .catch(function (error) {
+          console.error("Ошибка:", error);
+          showError("Произошла ошибка. Пожалуйста, попробуйте еще раз.");
+        });
+    }
+  }
 
   $j("#invite-actions").on("click", ".invite-action", function (event) {
     $modalButton = $j(this);
@@ -60,59 +85,7 @@ $j(document).ready(function () {
     event.preventDefault();
     $modalButton = $j(this);
     $form = $modalButton.closest("form");
-    $sectionGuest = $j(".section-body, #section-invite .section-body");
-    $modalChange = $j("#modal-guest-change");
-
-    performPostRequest(
-      $form.attr("action"),
-      $form.serialize(),
-      function (response) {
-        if ("accept" === response.data.mode) {
-          if (response.data.html.btn_wrapper) {
-            $sectionGuest
-              .find(".btn-wrapper")
-              .replaceWith(response.data.html.btn_wrapper);
-          }
-          if (response.data.html.accept_note) {
-            $sectionGuest
-              .find(".accept-note")
-              .replaceWith(response.data.html.accept_note);
-          }
-          if (response.data.html.tablenum) {
-            $sectionGuest
-              .find(".accept-note")
-              .after(response.data.html.tablenum);
-          }
-          $modalChange
-            .find('select[name="guest[count]"]')
-            .val(response.data.item.count);
-          $modalChange
-            .find('textarea[name="guest[comment]"]')
-            .val(response.data.item.comment);
-          $modalChange
-            .find('input[name="guest[email]"]')
-            .val(response.data.item.email);
-        } else if ("decline" === response.data.mode) {
-          $sectionGuest.find(".btn-wrapper").empty();
-          if (response.data.html.accept_note) {
-            $sectionGuest
-              .find(".accept-note")
-              .replaceWith(response.data.html.accept_note);
-          }
-          $modalChange
-            .find('select[name="guest[count]"]')
-            .val(response.data.item.count);
-          $modalChange
-            .find('textarea[name="guest[comment]"]')
-            .val(response.data.item.comment);
-          $modalChange
-            .find('input[name="guest[email]"]')
-            .val(response.data.item.email);
-        }
-
-        $modal.modal("hide");
-      }
-    );
+    submitForm(); // Вызываем функцию отправки формы
   });
 
   $j("#pool .btn-send, #section-pool .btn-send").on("click", function (event) {

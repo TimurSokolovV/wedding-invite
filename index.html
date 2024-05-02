@@ -65,7 +65,7 @@
     <!-- CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/animate.min.css" rel="stylesheet" />
-    <link href="css/toastr.min.css" rel="stylesheet" />
+    <link href="css/toastr.css" rel="stylesheet" />
     <link href="css/blueimp-gallery.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/jquery.classycountdown.css" rel="stylesheet" />
@@ -689,7 +689,7 @@
     </div>
     <div class="modal fade" id="modal-guest-accept" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
-        <form action="/invite/accept/" method="POST" id="form-guest-accept">
+        <form id="form-guest-accept">
           <input type="hidden" name="mode" value="accept" />
           <input type="hidden" name="is_preview" value="" />
           <input type="hidden" name="guest[uid]" value="55a92cd35163c" />
@@ -789,7 +789,7 @@
       role="dialog"
     >
       <div class="modal-dialog" role="document">
-        <form action="/invite/decline/" method="POST" id="form-guest-decline">
+        <form id="form-guest-decline">
           <input type="hidden" name="mode" value="decline" />
           <input type="hidden" name="is_preview" value="" />
           <input type="hidden" name="guest[uid]" value="55a92cd35163c" />
@@ -936,7 +936,7 @@
 
     <!-- JS -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/toastr.min.js"></script>
+    <script src="js/toastr.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/jquery.knob.js"></script>
     <script src="js/jquery.throttle.js"></script>
