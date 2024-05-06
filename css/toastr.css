@@ -126,6 +126,9 @@ button.toast-close-button {
 .toast-warning .toast-message {
   color: #363838;
 }
+.toast-message {
+  color: #fff;
+}
 .toast-progress {
   position: absolute;
   left: 0;

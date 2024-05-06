@@ -691,14 +691,10 @@
       <div class="modal-dialog" role="document">
         <form id="form-guest-accept">
           <input type="hidden" name="mode" value="accept" />
-          <input type="hidden" name="is_preview" value="" />
-          <input type="hidden" name="guest[uid]" value="55a92cd35163c" />
-
           <div class="modal-content">
             <div class="modal-header">
               <h2>Я принимаю приглашение</h2>
             </div>
-
             <div class="modal-body">
               <div class="row">
                 <div class="form-group col-md-12">
@@ -706,14 +702,14 @@
                   <input
                     type="text"
                     class="form-control"
-                    name="guest[name]"
+                    name="name"
                     placeholder="Имя и фамилия"
                     value=""
                   />
                 </div>
                 <div class="form-group col-md-12">
                   <label for="">Подтвердите количество персон</label>
-                  <select class="form-control" name="guest[count]">
+                  <select class="form-control" name="person_count">
                     <option selected="">1</option>
                     <option>2</option>
                     <option>3</option>
@@ -731,7 +727,7 @@
                       class="redio-button"
                       type="radio"
                       name="stay_overnight"
-                      value="yes"
+                      value="Да"
                     />
                     <span>Да</span>
                   </div>
@@ -740,7 +736,7 @@
                       class="redio-button"
                       type="radio"
                       name="stay_overnight"
-                      value="no"
+                      value="Нет"
                     />
                     <span>Нет</span>
                   </div>
@@ -749,7 +745,7 @@
                   <label for="">Сообщение молодоженам</label>
                   <textarea
                     class="form-control"
-                    name="guest[comment]"
+                    name="comment"
                     rows="3"
                     placeholder="Молодожены получат ваше сообщение"
                   ></textarea>
@@ -791,10 +787,6 @@
       <div class="modal-dialog" role="document">
         <form id="form-guest-decline">
           <input type="hidden" name="mode" value="decline" />
-          <input type="hidden" name="is_preview" value="" />
-          <input type="hidden" name="guest[uid]" value="55a92cd35163c" />
-          <input type="hidden" name="guest[count]" value="2" />
-          <input type="hidden" name="guest[email]" value="" />
 
           <div class="modal-content">
             <div class="modal-header">
@@ -802,6 +794,16 @@
             </div>
             <div class="modal-body">
               <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="">Укажите свое имя</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    placeholder="Имя и фамилия"
+                    value=""
+                  />
+                </div>
                 <div class="form-group col-md-12">
                   <label for=""> Сообщение молодоженам </label>
 
@@ -839,70 +841,6 @@
         </form>
       </div>
     </div>
-    <!-- <div class="modal fade" id="modal-guest-change" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <form action="/invite/accept/" method="POST" id="form-guest-change">
-          <input type="hidden" name="mode" value="change" />
-          <input type="hidden" name="is_preview" value="" />
-          <input type="hidden" name="guest[uid]" value="55a92cd35163c" />
-          <input type="hidden" name="guest[count]" value="2" />
-          <input type="hidden" name="guest[email]" value="" />
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2>Изменение информации</h2>
-            </div>
-            <div class="modal-body">
-              <div class="row">
-                <div class="form-group col-md-12">
-                  <label for="">Подтвердите количество персон</label>
-                  <select class="form-control" name="guest[count]">
-                    <option>1</option>
-                    <option selected="">2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-12">
-                  <label for=""> E-mail </label>
-
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="guest[email]"
-                    placeholder="Для сообщений от молодоженов"
-                    value=""
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <div class="btn-wrapper-float clearfix">
-                <button
-                  type="button"
-                  class="btn btn-small btn-default"
-                  data-dismiss="modal"
-                >
-                  Закрыть
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-small btn-primary btn-send"
-                  data-title="Сохранить"
-                  data-loading="Сохранение..."
-                  data-done="Сохранено"
-                  data-error="Возникла ошибка, попробуйте позже"
-                >
-                  Сохранить
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div> -->
-
     <!-- JS -->
     <!-- Partials -->
     <!-- The Gallery as lightbox dialog, should be a child element of the document body -->

@@ -3,9 +3,6 @@ var $modalButton,
   $form,
   $j = jQuery.noConflict(!0);
 
-//AKfycbynrpeK_I5qeJcHm9qu-w4nLlpRldTBEr9c2EMTru9nhAHCQ_r2eiohf7P8v3Yiwb6d
-//https://script.google.com/macros/s/AKfycbynrpeK_I5qeJcHm9qu-w4nLlpRldTBEr9c2EMTru9nhAHCQ_r2eiohf7P8v3Yiwb6d/exec
-
 function showError(message) {
   message
     ? toastr.error(message)
@@ -15,7 +12,7 @@ function showError(message) {
 $j(document).ready(function () {
   // Функция для проверки заполненности поля имени
   function validateNameField() {
-    var nameInput = document.querySelector('input[name="guest[name]"]');
+    var nameInput = document.querySelector('input[name="name"]');
     var name = nameInput.value.trim();
     if (name === "") {
       showError('Поле "Укажите свое имя" не может быть пустым');
@@ -52,15 +49,16 @@ $j(document).ready(function () {
       var form = document.getElementById("form-guest-accept");
       var formData = new FormData(form);
       fetch(
-        "https://script.google.com/macros/s/AKfycbynrpeK_I5qeJcHm9qu-w4nLlpRldTBEr9c2EMTru9nhAHCQ_r2eiohf7P8v3Yiwb6d/exec",
+        "https://script.google.com/macros/s/AKfycbxWu9oWpJEdE06Yok1ao3sIv2pbyoZYeHETKTpmQFp5p5skPWV4aZuu2wuEoFw5HGlK/exec",
         {
           method: "POST",
           body: formData,
+          mode: "no-cors",
         }
       )
         .then(function (response) {
           if (response.ok) {
-            toastr.success("Форма успешно отправлена!");
+            toastr.info("Форма успешно отправлена!");
             form.reset();
           } else {
             showError(
@@ -85,7 +83,7 @@ $j(document).ready(function () {
     event.preventDefault();
     $modalButton = $j(this);
     $form = $modalButton.closest("form");
-    submitForm(); // Вызываем функцию отправки формы
+    submitForm();
   });
 
   $j("#pool .btn-send, #section-pool .btn-send").on("click", function (event) {
