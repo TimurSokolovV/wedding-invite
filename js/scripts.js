@@ -68,7 +68,7 @@ $j(document).ready(function () {
         "https://script.google.com/macros/s/AKfycbyLwalrHPI9i_yId7BGVCr3zqsBqLKN4dIPK5-rgByB1bOt4Jt6JN3sKKedOQA82A-lpA/exec",
         {
           method: "POST",
-          body: new FormData(form),
+          body: data,
         }
       )
         .then(function (response) {
