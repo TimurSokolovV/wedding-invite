@@ -73,7 +73,7 @@ $j(document).ready(function () {
       )
         .then(function (response) {
           if (response.ok) {
-            button.textContent = done;
+            button.textContent = title;
             button.disabled = false;
             $modal.modal("hide");
             toastr.info(
