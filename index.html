@@ -689,7 +689,7 @@
     </div>
     <div class="modal fade" id="modal-guest-accept" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
-        <form id="form-guest-accept">
+        <form name="form-guest-accept">
           <input type="hidden" name="mode" value="accept" />
           <div class="modal-content">
             <div class="modal-header">
@@ -769,6 +769,7 @@
                   data-loading="Отправка..."
                   data-done="Отправлено"
                   data-error="Возникла ошибка, попробуйте позже"
+                  data-mode="accept"
                 >
                   Отправить
                 </button>
@@ -785,7 +786,7 @@
       role="dialog"
     >
       <div class="modal-dialog" role="document">
-        <form id="form-guest-decline">
+        <form name="form-guest-decline">
           <input type="hidden" name="mode" value="decline" />
 
           <div class="modal-content">
@@ -809,7 +810,7 @@
 
                   <textarea
                     class="form-control"
-                    name="guest[comment]"
+                    name="comment"
                     rows="3"
                     placeholder="Молодожены получат ваше сообщение"
                   ></textarea>
@@ -832,6 +833,7 @@
                   data-loading="Отправка..."
                   data-done="Отправлено"
                   data-error="Возникла ошибка, попробуйте позже"
+                  data-mode="decline"
                 >
                   Отправить
                 </button>

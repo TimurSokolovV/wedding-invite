@@ -10,19 +10,21 @@ function showError(message) {
 }
 
 $j(document).ready(function () {
-  // Функция для проверки заполненности поля имени
-  function validateNameField() {
-    var nameInput = document.querySelector('input[name="name"]');
-    var name = nameInput.value.trim();
-    if (name === "") {
+  function validateNameField(data) {
+    var nameInput = data.get("name");
+    var name = nameInput?.trim();
+
+    if (!name) {
       showError('Поле "Укажите свое имя" не может быть пустым');
       return false;
     }
     return true;
   }
 
-  // Функция для проверки выбора варианта остаться на ночь
-  function validateStayOvernightField() {
+  function validateStayOvernightField(data) {
+    var mode = data.get("mode");
+    if (mode === "decline") return true;
+
     var stayOvernightInputs = document.querySelectorAll(
       'input[name="stay_overnight"]'
     );
@@ -40,44 +42,62 @@ $j(document).ready(function () {
     }
     return true;
   }
-
-  // Функция для отправки формы
   function submitForm() {
-    var isValidName = validateNameField();
-    var isValidStayOvernight = validateStayOvernightField();
+    var mode = $modalButton.data("mode");
+
+    var form =
+      document.forms[
+        mode === "accept" ? "form-guest-accept" : "form-guest-decline"
+      ];
+
+    const data = new FormData(form);
+
+    var isValidName = validateNameField(data);
+    var isValidStayOvernight = validateStayOvernightField(data);
+
     if (isValidName && isValidStayOvernight) {
-      var form = document.getElementById("form-guest-accept");
-      var formData = new FormData(form);
+      var button = $modalButton[0];
+      var title = $modalButton.data("title");
+      var loading = $modalButton.data("loading");
+      var done = $modalButton.data("done");
+
+      button.textContent = loading;
+      button.disabled = true;
+
       fetch(
-        "https://script.google.com/macros/s/AKfycbxWu9oWpJEdE06Yok1ao3sIv2pbyoZYeHETKTpmQFp5p5skPWV4aZuu2wuEoFw5HGlK/exec",
+        "https://script.google.com/macros/s/AKfycbyLwalrHPI9i_yId7BGVCr3zqsBqLKN4dIPK5-rgByB1bOt4Jt6JN3sKKedOQA82A-lpA/exec",
         {
           method: "POST",
-          body: formData,
-          mode: "no-cors",
+          body: new FormData(form),
         }
       )
         .then(function (response) {
           if (response.ok) {
-            toastr.info("Форма успешно отправлена!");
+            button.textContent = done;
+            button.disabled = false;
+            $modal.modal("hide");
+            toastr.info(
+              mode === "accept"
+                ? "Форма отправлена, очень вас ждем!"
+                : "Форма отправлена!"
+            );
             form.reset();
           } else {
             showError(
               "Ошибка при отправке формы. Пожалуйста, попробуйте еще раз."
             );
+            button.textContent = title;
+            button.disabled = false;
           }
         })
         .catch(function (error) {
           console.error("Ошибка:", error);
           showError("Произошла ошибка. Пожалуйста, попробуйте еще раз.");
+          button.textContent = title;
+          button.disabled = false;
         });
     }
   }
-
-  $j("#invite-actions").on("click", ".invite-action", function (event) {
-    $modalButton = $j(this);
-    $modal = $j("#modal-guest-" + $modalButton.data("mode"));
-    $modal.modal("show");
-  });
 
   $j(".modal .btn-send").on("click", function (event) {
     event.preventDefault();
@@ -86,14 +106,10 @@ $j(document).ready(function () {
     submitForm();
   });
 
-  $j("#pool .btn-send, #section-pool .btn-send").on("click", function (event) {
-    event.preventDefault();
+  $j("#invite-actions").on("click", ".invite-action", function (event) {
     $modalButton = $j(this);
-    performPostRequest(
-      $modalButton.closest("form").attr("action"),
-      $form.serialize(),
-      function (response) {}
-    );
+    $modal = $j("#modal-guest-" + $modalButton.data("mode"));
+    $modal.modal("show");
   });
 
   $j(".nav li a").on("click", function (event) {
