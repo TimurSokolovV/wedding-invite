@@ -6094,7 +6094,10 @@ button.close {
 }
 .modal-content {
   position: relative;
-  background-color: #fff;
+  background-image: url("../images/bg-first.jpg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   border: 1px solid #999;
