@@ -10,6 +10,17 @@ function showError(message) {
 }
 
 $j(document).ready(function () {
+  var isFormSubmitted = localStorage.getItem("isFormSubmitted");
+
+  function toogleRequestActionsVisibility() {
+    $j(".invite-buttons").addClass("hide");
+    $j(".invite_requested").removeClass("hide");
+  }
+
+  if (isFormSubmitted) {
+    toogleRequestActionsVisibility();
+  }
+
   function validateNameField(data) {
     var nameInput = data.get("name");
     var name = nameInput?.trim();
@@ -81,6 +92,8 @@ $j(document).ready(function () {
                 : "Форма отправлена!"
             );
             form.reset();
+            toogleRequestActionsVisibility();
+            localStorage.setItem("isFormSubmitted", true);
           } else {
             showError(
               "Ошибка при отправке формы. Пожалуйста, попробуйте еще раз."
