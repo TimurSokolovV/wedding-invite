@@ -59,13 +59,12 @@ $j(document).ready(function () {
       var button = $modalButton[0];
       var title = $modalButton.data("title");
       var loading = $modalButton.data("loading");
-      var done = $modalButton.data("done");
 
       button.textContent = loading;
       button.disabled = true;
 
       fetch(
-        "https://script.google.com/macros/s/AKfycbyLwalrHPI9i_yId7BGVCr3zqsBqLKN4dIPK5-rgByB1bOt4Jt6JN3sKKedOQA82A-lpA/exec",
+        "https://script.google.com/macros/s/AKfycbwBIM2QqJkex2vNN-OZuRkScu_WSlab6BQ8UY7czhCJljd6urH-T2JGXX4a2GWeBAhPlw/exec",
         {
           method: "POST",
           body: data,
