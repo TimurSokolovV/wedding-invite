@@ -18,7 +18,9 @@ $j(document).ready(function () {
   }
 
   if (isFormSubmitted) {
-    toogleRequestActionsVisibility();
+    $j(".invite_requested").removeClass("hide");
+  } else {
+    $j(".invite-buttons").removeClass("hide");
   }
 
   function validateNameField(data) {
@@ -26,7 +28,7 @@ $j(document).ready(function () {
     var name = nameInput?.trim();
 
     if (!name) {
-      showError('Поле "Укажите свое имя" не может быть пустым');
+      showError("Пожалуйста, укажите ваше имя");
       return false;
     }
     return true;
@@ -47,7 +49,7 @@ $j(document).ready(function () {
     });
     if (!isChecked) {
       showError(
-        'Пожалуйста, выберите один из вариантов для поля "Планируете ли вы остаться на ночь после свадебного банкета?"'
+        'Пожалуйста, выберите вариант ответа в поле "Планируете ли вы остаться на ночь"'
       );
       return false;
     }
