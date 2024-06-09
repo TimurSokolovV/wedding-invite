@@ -427,7 +427,7 @@ span {
   top: -88px;
   transform: translateY(100%);
   z-index: 40;
-  background-color: rgba(255, 255, 255, 0.96);
+  background-color: #effafe;
   box-shadow: 0 0 8px rgba(45, 41, 38, 0.1);
   backdrop-filter: blur(4px);
   border-bottom-left-radius: 32px;
@@ -539,7 +539,7 @@ span {
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  background-color: #f4f4f2;
+  background-color: #effafe;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
 }
@@ -577,7 +577,7 @@ span {
   top: -22px;
   width: 648px;
   height: 24px;
-  background-color: #f4f4f2;
+  background-color: #effafe;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   z-index: -1;

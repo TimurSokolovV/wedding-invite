@@ -1089,7 +1089,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #f4f4f2;
+  background-color: #effafe;
 }
 button,
 input,
@@ -6096,7 +6096,7 @@ button.close {
   position: relative;
   background-image: url("../images/roses.jpg");
   background-position: right;
-  background-size: cover;
+  background-size: auto;
   background-repeat: no-repeat;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
@@ -6106,6 +6106,11 @@ button.close {
   outline: 0;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+
+  @media screen and (max-width: 768px) {
+    background-position: bottom;
+    background-size: cover;
+  }
 }
 .modal-backdrop {
   position: fixed;
