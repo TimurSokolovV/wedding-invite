@@ -797,9 +797,9 @@ span {
 }
 .gallery ul li img {
   width: 100%;
-  height: 400px;
+  height: 450px;
   @media (max-width: 768px) {
-    height: 150px;
+    height: 160px;
   }
 }
 #section-program::after {
