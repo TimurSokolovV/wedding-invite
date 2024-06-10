@@ -485,7 +485,7 @@ span {
 }
 #section-first .section__first-couple {
   position: absolute;
-  top: 20%;
+  top: 15%;
   width: 100%;
   z-index: 20;
   color: #fff;
