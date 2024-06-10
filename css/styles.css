@@ -347,7 +347,7 @@ span {
   border-bottom: 1px solid rgba(45, 41, 38, 0.1);
   height: 100vh;
   max-height: -webkit-fill-available;
-  padding-bottom: 124px;
+  /* padding-bottom: 124px; */
 }
 #section-first .section__first-overlay {
   position: absolute;
@@ -978,9 +978,9 @@ span {
     width: 100%;
     padding: 0 16px;
   }
-  #section-first .section__first {
+  /* #section-first .section__first {
     padding-bottom: 168px;
-  }
+  } */
   #section-first .section__first-menu {
     height: 64px;
   }
@@ -1107,9 +1107,9 @@ span {
   .section-body_fullwidth {
     padding: 0;
   }
-  #section-first .section__first {
+  /* #section-first .section__first {
     padding-bottom: calc(100px - 16px);
-  }
+  } */
   #section-first .section__first-countdown {
     height: 100px;
     padding: 0 16px;
