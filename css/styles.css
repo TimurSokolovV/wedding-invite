@@ -1108,10 +1108,10 @@ span {
     padding: 0;
   }
   #section-first .section__first {
-    padding-bottom: calc(27vw - 16px);
+    padding-bottom: calc(16vh - 16px);
   }
   #section-first .section__first-countdown {
-    height: 26vw;
+    height: 16vh;
     padding: 0 16px;
   }
   #section-first .section__first-countdown .simple-countdown {
