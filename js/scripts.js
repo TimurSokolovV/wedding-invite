@@ -17,7 +17,7 @@ $j(document).ready(function () {
     $j(".invite_requested").removeClass("hide");
   }
 
-  if (false) {
+  if (isFormSubmitted) {
     $j(".invite_requested").removeClass("hide");
   } else {
     $j(".invite-buttons").removeClass("hide");
@@ -95,7 +95,7 @@ $j(document).ready(function () {
             );
             form.reset();
             toogleRequestActionsVisibility();
-            // localStorage.setItem("isFormSubmitted", true);
+            localStorage.setItem("isFormSubmitted", true);
           } else {
             showError(
               "Ошибка при отправке формы. Пожалуйста, попробуйте еще раз."
